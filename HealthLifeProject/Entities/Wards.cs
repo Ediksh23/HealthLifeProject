@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+
+/// <summary>
+/// Summary description for Class1
+/// </summary>
+/// 
+namespace HealthLifeProject.Entities { 
+    public class Wards
+    {
+        public int Id { set; get; }
+        public string NameWard { set; get; }
+        public int HospitalID { set; get; }
+        public int CityID { set; get; }
+        public int StreetID { set; get; }
+        public int EntranceID { set; get; }
+        public int HouseID { set; get; }
+        public string Desc { set; get; }
+        public List<Patients> Patients { set; get; }
+
+        public virtual Hospitals Hospital { set; get; }
+        public virtual Cities City { set; get; }
+        public virtual Streets Street { set; get; }
+        public virtual Entrances Entrance { set; get; }
+        public virtual Houses House { set; get; }
+    }
+}
