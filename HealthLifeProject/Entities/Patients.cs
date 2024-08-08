@@ -26,7 +26,7 @@ namespace HealthLifeProject.Entities {
         public string Bank_account { set; get; }   // 
         public string Bank_card_number { set; get; }   //
         public int Fundraising_statusID { set; get; }
-        public string Inn { set; get; }   //
+        public int Inn { set; get; }   //
         public string Descript_patient_and_disease { set; get; }
         public string Notate { set; get; }
 
