@@ -22,8 +22,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="images\Hospitals\" />
-    <Folder Include="images\Partners\" />
     <Folder Include="images\Patients\" />
     <Folder Include="images\Wards\" />
   </ItemGroup>
