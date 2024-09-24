@@ -25,6 +25,14 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Add(patronymic);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeletePatronymicsByID(int patronymicID)
+        {
+            Patronymics patronymic = _healthLifeDBContext.Patronymics.Find(patronymicID);
+            _healthLifeDBContext.Patronymics.Remove(patronymic);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Patronymics> getAllPatronymics()
         {
             return _healthLifeDBContext.Patronymics.OrderBy(s => s.Id).ToList();

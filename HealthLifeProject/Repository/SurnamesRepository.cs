@@ -19,9 +19,17 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Surnames.Add(new Surnames() { surname = surname, desc = descript });
             _healthLifeDBContext.SaveChanges();
         }*/
+
         public bool AddSurname(Surnames surname)
         {
             _healthLifeDBContext.Add(surname);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
+        public bool DeleteSurnameByID(int surnameID)
+        {
+            Surnames surname = _healthLifeDBContext.Surnames.Find(surnameID);
+            _healthLifeDBContext.Surnames.Remove(surname);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
         public List<Surnames> getAllSurnames()

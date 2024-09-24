@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 /// <summary>
 /// Summary description for Class1
@@ -8,17 +9,29 @@ namespace HealthLifeProject.Entities {
     public class HospitalsRepresentatives
     {
         public int Id { set; get; }
+        [ForeignKey("Surnames")]
         public int SurnameID { set; get; }
-        public int NameID { set; get; } //
+        [ForeignKey("Names")]
+        public int NameID { set; get; }//
+        [ForeignKey("Patronymics")]
         public int PatronymicID { set; get; }   //
-        public List<ContactPhones> ContactPhones { set; get; }
+        public string ContactPhone { set; get; }
         public string Email { set; get; }
         public DateTime BirthDate { set; get; }
-        public int SexID { set; get; }
+        [ForeignKey("Gender")]
+        public int GenderID { set; get; }
+        [ForeignKey("Cities")]
         public int CityID { set; get; }
+        [ForeignKey("Hospitals")]
         public int HospitalID { set; get; }
-        public int WardID { set; get; }
+        [ForeignKey("Wards")]
+        public int? WardID { set; get; } = null;
+        [ForeignKey("Positions")]
         public int PositionID { set; get; }
+        public string Login { get; set; }
+        public string Password { get; set; }
+        public DateTime RegisterDate { get; set; } = DateTime.Now;
+        [ForeignKey("Roles")]
         public int RoleID { set; get; }
         public string Notate { set; get; }
 

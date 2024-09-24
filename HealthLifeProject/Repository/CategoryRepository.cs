@@ -14,16 +14,24 @@ namespace HealthLifeProject.Repository
         {
             _healthLifeDBContext = healthLifeDBContext;
         }
-        //        internal void Category(string name, string descript)
-        //        {
-        //            _healthLifeDBContext.Category.Add(new Category() { NameCategory = name, Desc = descript });
-        //            _healthLifeDBContext.SaveChanges();
-        //        }
+        /*internal void AddCategory(string name, string descript)
+        {
+            _healthLifeDBContext.Category.Add(new Category() { NameCategory = name, Desc = descript });
+            _healthLifeDBContext.SaveChanges();
+        }*/
         public bool AddCategory(Category category)
         {
             _healthLifeDBContext.Add(category);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeleteCategoryByID(int categoryID)
+        {
+            Category category = _healthLifeDBContext.Category.Find(categoryID);
+            _healthLifeDBContext.Category.Remove(category);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Category> getAllCategory()
         {
             return _healthLifeDBContext.Category.OrderBy(s => s.Id).ToList();

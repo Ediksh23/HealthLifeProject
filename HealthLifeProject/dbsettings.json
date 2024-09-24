@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "DefaultConnection": "Server=(localdb)\\MSSQLLocslDB;Database=HealthLife;Trusted_Connection=True;MultipleActiveResultSets=true"
-  }
-}

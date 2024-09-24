@@ -1,15 +1,16 @@
 ﻿using HealthLifeProject.Commons;
 using HealthLifeProject.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace HealthLifeProject.Repository
 {
-    public class StreetsRepository
+    public class StreetTypesRepository
     {
         private readonly HealthLifeDBContext _healthLifeDBContext;
 
-        public StreetsRepository(HealthLifeDBContext healthLifeDBContext)
+        public StreetTypesRepository(HealthLifeDBContext healthLifeDBContext)
         {
             _healthLifeDBContext = healthLifeDBContext;
         }
@@ -20,16 +21,16 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.SaveChanges();
         }*/
 
-        public bool AddStreet(Streets street)
+        public bool AddStreetType(StreetTypes streetType)
         {
-            _healthLifeDBContext.Add(street);
+            _healthLifeDBContext.Add(streetType);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
-        public bool DeleteStreetByID(int streetID)
+        public bool DeleteStreetTypeByID(int typeID)
         {
-            Streets street = _healthLifeDBContext.Streets.Find(streetID);
-            _healthLifeDBContext.Streets.Remove(street);
+            StreetTypes type = _healthLifeDBContext.StreetTypes.Find(typeID);
+            _healthLifeDBContext.StreetTypes.Remove(type);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
         public List<Streets> getAllStreets()

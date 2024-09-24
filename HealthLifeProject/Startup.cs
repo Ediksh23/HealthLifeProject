@@ -1,7 +1,11 @@
 using HealthLifeProject.Commons;
+using HealthLifeProject.Entities;
+using HealthLifeProject.Repository;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -9,6 +13,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApp.Entities;
+using IHostingEnvironment = Microsoft.AspNetCore.Hosting.IHostingEnvironment;
 
 namespace HealthLifeProject
 {
@@ -24,8 +30,47 @@ namespace HealthLifeProject
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //отримуємо рядок підключення з конфігураційного файлу
+            string connection = Configuration.GetConnectionString("DefaultConnection");
+            //додаємо контекст ApplicationContext як сервіс у додаток
+            services.AddDbContext<HealthLifeDBContext>(options =>
+                options.UseSqlServer(connection));
+
             services.AddControllersWithViews();
-            services.AddDbContext<HealthLifeDBContext>();
+
+            services.AddTransient<BenefactorsRepository>();
+            services.AddTransient<CategoryRepository>();
+            services.AddTransient<TreatmentCategoryRepository>();
+            services.AddTransient<CitiesRepository>();
+            services.AddTransient<HospitalsCharitableContributionsRepository>();
+            services.AddTransient<ContactPhonesRepository>();
+            services.AddTransient<DiagnosesRepository>();
+            services.AddTransient<EntrancesRepository>();
+            services.AddTransient<FundraisingStatusesRepository>();
+            services.AddTransient<HospitalsRepository>();
+            services.AddTransient<HospitalsPhotosRepository>();
+            services.AddTransient<HospitalsRepresentativesRepository>();
+            services.AddTransient<HospitalsCharitableContributionsRepository>();
+            services.AddTransient<HousesRepository>();
+            services.AddTransient<NamesRepository>();
+            services.AddTransient<PatientPhotosRepository>();
+            services.AddTransient<PatientsRepository>();
+            services.AddTransient<PatientsCharitableContributionsRepository>();
+            services.AddTransient<PartnersRepresentativesRepository>();
+            services.AddTransient<PatronymicsRepository>();
+            services.AddTransient<PositionsRepository>();
+            services.AddTransient<PartnersRepository>();
+            services.AddTransient<RolesRepository>();
+            services.AddTransient<GenderRepository>();
+            services.AddTransient<StreetsRepository>();
+            services.AddTransient<StreetTypesRepository>();
+            services.AddTransient<SurnamesRepository>();
+            services.AddTransient<WardsRepository>();
+            services.AddTransient<WardsPhotosRepository>();
+
+
+
+            services.AddHttpContextAccessor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -64,6 +109,14 @@ namespace HealthLifeProject
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            // Виклик функціі SeedData
+           /* using (var scope = app.ApplicationServices.CreateScope())
+            {
+                // HealthLifeDBContext content = scope.ServiceProvider.GetRequiredService<HealthLifeDBContext>();
+                var services = scope.ServiceProvider;
+                SeedData.Initialize(services);
+            }*/
         }
     }
 }

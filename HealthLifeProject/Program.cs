@@ -22,5 +22,6 @@ namespace HealthLifeProject
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+        
     }
 }

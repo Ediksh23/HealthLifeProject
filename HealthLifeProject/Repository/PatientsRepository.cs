@@ -15,15 +15,23 @@ namespace HealthLifeProject.Repository
         {
             _healthLifeDBContext = healthLifeDBContext;
         }
-        /*internal void Patients(int surnameID, int nameID, int patronymicID, DateTime birthDate,  int sexID, int cityID, int hospitalID, int wardID, int categoryID, int diagnosisID, string bank_account, string bank_card_number, int inn, int fundraising_statusID, string notate)
+        /*internal void AddPatients(int surnameID, int nameID, int patronymicID, DateTime birthDate,  int sexID, int cityID, int hospitalID, int wardID, int categoryID, int diagnosisID, string bank_account, string bank_card_number, int inn, int fundraising_statusID, string notate)
         {
             _healthLifeDBContext.Patients.Add(new Patients() { surnameID = surnameID,  nameID= nameID, patronymicID = patronymicID, birthDate = birthDate, sexID = sexID, cityID = cityID, hospitalID = hospitalID, wardID = wardID,
                 categoryID = categoryID,diagnosisID = diagnosisID, bank_account = bank_account, bank_card_number= bank_card_number, inn=inn,  fundraising_statusID= fundraising_statusID, notate = notate});
             _healthLifeDBContext.SaveChanges();
         }*/
+
         public bool AddPatient(Patients patient)
         {
             _healthLifeDBContext.Add(patient);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
+        public bool DeletePatientsByID(int patientID)
+        {
+            Patients patient = _healthLifeDBContext.Patients.Find(patientID);
+            _healthLifeDBContext.Patients.Remove(patient);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
@@ -35,7 +43,7 @@ namespace HealthLifeProject.Repository
         {
             return _healthLifeDBContext.Patients.Where(o => o.SurnameID == surnameID).ToList();
         }
-        public IEnumerable<Patients> GetPatientsBySexID(int genderID)
+        public IEnumerable<Patients> GetPatientsByGenderID(int genderID)
         {
             return _healthLifeDBContext.Patients.Where(o => o.GenderID == genderID).ToList();
         }

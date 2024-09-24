@@ -20,11 +20,19 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.SaveChanges();
         }*/
 
-        public bool AddDiagnos(Benefactors diagnos)
+        public bool AddDiagnose(Diagnoses diagnose)
         {
-            _healthLifeDBContext.Add(diagnos);
+            _healthLifeDBContext.Add(diagnose);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeleteDiagnoseByID(int diagnoseID)
+        {
+            Diagnoses diagnose = _healthLifeDBContext.Diagnoses.Find(diagnoseID);
+            _healthLifeDBContext.Diagnoses.Remove(diagnose);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Diagnoses> getAllDiagnoses()
         {
             return _healthLifeDBContext.Diagnoses.OrderBy(s => s.Id).ToList();

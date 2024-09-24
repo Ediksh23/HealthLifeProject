@@ -9,7 +9,9 @@ namespace HealthLifeProject.Entities {
     {
         public int Id { set; get; }
         public string NameStreet { set; get; }
+        public int StreetTypesId { set; get; }
         public string Desc { set; get; }
+        public virtual StreetTypes StreetType { set; get; }
         public List<Hospitals> Hospitals { set; get; }
         public List<Wards> Wards { set; get; }
     }

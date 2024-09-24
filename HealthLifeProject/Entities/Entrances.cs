@@ -8,7 +8,7 @@ namespace HealthLifeProject.Entities {
     public class Entrances
     {
         public int Id { set; get; }
-        public string NameEntrance { set; get; }
+        public int NumbEntrance { set; get; }
         public string Desc { set; get; }
         public List<Hospitals> Hospitals { set; get; }
         public List<Wards> Wards { set; get; }

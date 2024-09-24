@@ -18,12 +18,19 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Wards.Add(new Wards() { nameWard = nameWard, hospitalID= hospitalID, cityID = cityID, streetID = streetID, entranceID = entranceID, houseID = houseID, desc = desc });
             _healthLifeDBContext.SaveChanges();
         }*/
+
         public bool AddWard(Wards ward)
         {
             _healthLifeDBContext.Add(ward);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
+        public bool DeleteWardByID(int wardID)
+        {
+            Wards ward = _healthLifeDBContext.Wards.Find(wardID);
+            _healthLifeDBContext.Wards.Remove(ward);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
         public IEnumerable<Wards> GetAllWards()
         {
             return _healthLifeDBContext.Wards.OrderBy(o => o.Id).ToList();

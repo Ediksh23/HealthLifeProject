@@ -19,11 +19,20 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Roles.Add(new Roles() { nameRole = name, desc = descript });
             _healthLifeDBContext.SaveChanges();
         }*/
+
         public bool AddRole(Roles role)
         {
             _healthLifeDBContext.Add(role);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeleteRolesByID(int roleID)
+        {
+            Roles role = _healthLifeDBContext.Roles.Find(roleID);
+            _healthLifeDBContext.Roles.Remove(role);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Roles> getAllRoles()
         {
             return _healthLifeDBContext.Roles.OrderBy(s => s.Id).ToList();

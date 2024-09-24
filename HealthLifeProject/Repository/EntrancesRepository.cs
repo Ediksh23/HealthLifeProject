@@ -14,15 +14,21 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext = healthLifeDBContext;
         }
 
-        /*internal void AddEntrances(string name, string descript)
+        /*internal void Entrances(string name, string descript)
         {
             _healthLifeDBContext.Entrances.Add(new Entrances() { nameEntrance= name, desc= descript });
             _healthLifeDBContext.SaveChanges();
         }*/
-
-        public bool AddEntrance(Benefactors entrance)
+        public bool AddEntrance(Entrances entrance)
         {
             _healthLifeDBContext.Add(entrance);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
+        public bool DeleteEntranceByID(int entranceID)
+        {
+            Entrances entrance = _healthLifeDBContext.Entrances.Find(entranceID);
+            _healthLifeDBContext.Entrances.Remove(entrance);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
     }

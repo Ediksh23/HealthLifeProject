@@ -12,15 +12,21 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext = healthLifeDBContext;
         }
 
-        /*internal void AddHospitalsPhotos(int hospitalID, string way, string descript)
+        /*internal void HospitalsPhotos(int hospitalID, string way, string descript)
         {
             _healthLifeDBContext.HospitalsPhotos.Add(new HospitalsPhotos() { hospitalID= hospitalID, wayToPhoto = way, desc = descript });
             _healthLifeDBContext.SaveChanges();
         }*/
-
-        public bool AddHospitalsPhoto(HospitalsPhotos hospitalsPhoto)
+        public bool AddHospitalsPhoto(HospitalsPhotos photo)
         {
-            _healthLifeDBContext.Add(hospitalsPhoto);
+            _healthLifeDBContext.Add(photo);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
+        public bool DeleteHospitalsPhotoByID(int photoID)
+        {
+            HospitalsPhotos photo = _healthLifeDBContext.HospitalsPhotos.Find(photoID);
+            _healthLifeDBContext.HospitalsPhotos.Remove(photo);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
     }

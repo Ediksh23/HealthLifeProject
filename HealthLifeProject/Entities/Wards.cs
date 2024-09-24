@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 /// <summary>
 /// Summary description for Class1
@@ -10,13 +11,23 @@ namespace HealthLifeProject.Entities {
     {
         public int Id { set; get; }
         public string NameWard { set; get; }
+        [ForeignKey("Hospitals")]
         public int HospitalID { set; get; }
+        [ForeignKey("Cities")]
         public int CityID { set; get; }
+        [ForeignKey("Streets")]
         public int StreetID { set; get; }
+        [ForeignKey("Entrances")]
         public int EntranceID { set; get; }
+        [ForeignKey("Houses")]
         public int HouseID { set; get; }
+        public string Linc { set; get; }
+        public int DonationAmount { set; get; }
         public string Desc { set; get; }
         public List<Patients> Patients { set; get; }
+        public List<HospitalsRepresentatives> HospitalsRepresentatives { set; get; }
+        public List<HospitalsCharitableContributions> CharitableContributions { set; get; }
+        
 
         public virtual Hospitals Hospital { set; get; }
         public virtual Cities City { set; get; }

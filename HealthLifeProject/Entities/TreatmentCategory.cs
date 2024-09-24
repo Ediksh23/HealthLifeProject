@@ -7,10 +7,10 @@ using System.Collections.Generic;
 /// 
 namespace HealthLifeProject.Entities 
 { 
-    public class Category
+    public class TreatmentCategory
     {
           public int Id { set; get; }
-          public string NameCategory { set; get; }
+          public string NameTreatmentCategory { set; get; }
           public string Desc { set; get; }
           public List<Patients> Patients { set; get; }
     }

@@ -19,11 +19,20 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Houses.Add(new Houses() { numbHouse = numbHouse, desc = descript });
             _healthLifeDBContext.SaveChanges();
         }*/
+
         public bool AddHouse(Houses house)
         {
             _healthLifeDBContext.Add(house);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeleteHousesByID(int housesID)
+        {
+            Houses house = _healthLifeDBContext.Houses.Find(housesID);
+            _healthLifeDBContext.Houses.Remove(house);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Houses> getAllHouses()
         {
             return _healthLifeDBContext.Houses.OrderBy(s => s.Id).ToList();

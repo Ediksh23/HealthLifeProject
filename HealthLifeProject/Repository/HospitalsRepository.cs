@@ -25,14 +25,21 @@ namespace HealthLifeProject.Repository
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
+        public bool DeleteHospitalByID(int hospitalID)
+        {
+            Hospitals hospital = _healthLifeDBContext.Hospitals.Find(hospitalID);
+            _healthLifeDBContext.Hospitals.Remove(hospital);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public IEnumerable<Hospitals> GetAllHospitals()
         {
             return _healthLifeDBContext.Hospitals.OrderBy(o => o.Id).ToList();
         }
 
-        public IEnumerable<Hospitals> GetHospitalsByCityID(int cityID)
+        public IEnumerable<Hospitals> GetHospitalsByCityID(int CityID)
         {
-            return _healthLifeDBContext.Hospitals.Where(o => o.CityID == cityID).ToList();
+            return _healthLifeDBContext.Hospitals.Where(o => o.CityID == CityID).ToList();
         }
 
     }

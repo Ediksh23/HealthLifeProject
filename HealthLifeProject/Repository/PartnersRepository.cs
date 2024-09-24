@@ -5,31 +5,31 @@ using System.Linq;
 
 namespace HealthLifeProject.Repository
 {
-    public class GenderRepository
+    public class PartnersRepository
     {
         private readonly HealthLifeDBContext _healthLifeDBContext;
 
-        public GenderRepository(HealthLifeDBContext healthLifeDBContext)
+        public PartnersRepository(HealthLifeDBContext healthLifeDBContext)
         {
             _healthLifeDBContext = healthLifeDBContext;
         }
 
-        public bool AddGender(Gender gender)
+        public bool AddPartner(Partners partner)
         {
-            _healthLifeDBContext.Add(gender);
+            _healthLifeDBContext.Add(partner);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
-        public bool DeleteGenderByID(int genderID)
+        public bool DeletePartnerByID(int partnerID)
         {
-            Gender gender = _healthLifeDBContext.Gender.Find(genderID);
-            _healthLifeDBContext.Gender.Remove(gender);
+            Partners partner = _healthLifeDBContext.Partners.Find(partnerID);
+            _healthLifeDBContext.Partners.Remove(partner);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
-        public List<Gender> getAllGender()
+        public List<Partners> getAllPartners()
         {
-            return _healthLifeDBContext.Gender.OrderBy(s => s.Id).ToList();
+            return _healthLifeDBContext.Partners.OrderBy(s => s.Id).ToList();
         }
     }
 }

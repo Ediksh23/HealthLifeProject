@@ -14,7 +14,7 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext = healthLifeDBContext;
         }
 
-        /*internal void AddFundraisingStatuses(string name, string descript)
+        /*internal void FundraisingStatuses(string name, string descript)
         {
             _healthLifeDBContext.FundraisingStatuses.Add(new FundraisingStatuses() { nameFundraisingStatus = name, desc = descript });
             _healthLifeDBContext.SaveChanges();
@@ -25,6 +25,14 @@ namespace HealthLifeProject.Repository
             _healthLifeDBContext.Add(fundraisingStatus);
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
+
+        public bool DeleteFundraisingStatuseByID(int statuseID)
+        {
+            FundraisingStatuses fundraisingStatuse = _healthLifeDBContext.FundraisingStatuses.Find(statuseID);
+            _healthLifeDBContext.FundraisingStatuses.Remove(fundraisingStatuse);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<FundraisingStatuses> getAllFundraisingStatuses()
         {
             return _healthLifeDBContext.FundraisingStatuses.OrderBy(s => s.Id).ToList();

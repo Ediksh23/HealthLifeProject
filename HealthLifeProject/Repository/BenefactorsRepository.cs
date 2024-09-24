@@ -1,8 +1,6 @@
-﻿//using Google.Protobuf.WellKnownTypes;
-using HealthLifeProject.Commons;
+﻿using HealthLifeProject.Commons;
 using HealthLifeProject.Entities;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace HealthLifeProject.Repository
@@ -22,9 +20,23 @@ namespace HealthLifeProject.Repository
             return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
+        public bool DeleteBenefactorByID(int benefactorID)
+        {
+            Benefactors benefactor = _healthLifeDBContext.Benefactors.Find(benefactorID);
+            _healthLifeDBContext.Benefactors.Remove(benefactor);
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
+        }
+
         public List<Benefactors> getAllBenefactors()
         {
             return _healthLifeDBContext.Benefactors.OrderBy(s => s.Id).ToList();
         }
+
+        public Benefactors GetBenefactorByEmail(string email)
+        {
+            Benefactors benefactor = _healthLifeDBContext.Benefactors.FirstOrDefault(u => u.Email == email);
+            return benefactor;
+        }
+
     }
 }
