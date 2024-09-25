@@ -596,7 +596,7 @@ namespace HealthLifeProject.Commons
                       NameID=5,
                       PatronymicID=11,
                       GenderID=1,
-                      CategoryID=3, TreatmentCategoryID=2,  DiagnosisID=14,
+                      CategoryID=2, TreatmentCategoryID=2,  DiagnosisID=14,
                       CityID=3, HospitalID=1, WardID=6,
                       FeeAmount=90000,
                       Bank_card_number="2893567817393719", Bank_account="UA010000002893567817393719", Inn="2893567817", FundraisingStatusID=1,
@@ -765,7 +765,6 @@ namespace HealthLifeProject.Commons
                       Notate="Перебуваючи на позиції, Ілай отримав Проникаюче поранення грудної порожнини. " +
                       "Захиснику необхідне двготривале та коштовне лікування та відновлення. Реабілітація відбувається в КНП Харківської обласної ради " +
                       "«Обласна клінічна травматологічна лікарня»"},
-
             };
             modelBuilder.Entity<Patients>().HasData(patient);
 
@@ -884,6 +883,5 @@ namespace HealthLifeProject.Commons
             };
             modelBuilder.Entity<PartnersRepresentatives>().HasData(partnersRepresentative);
         }
-
     }
 }
