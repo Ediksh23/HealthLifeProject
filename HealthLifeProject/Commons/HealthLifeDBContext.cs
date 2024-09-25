@@ -42,6 +42,7 @@ namespace HealthLifeProject.Commons
         public Microsoft.EntityFrameworkCore.DbSet<WardsPhotos> WardsPhotos { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<NavagateLink> NavagateLink { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Option> Option { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<Events> Event { get; set; }
 
         public HealthLifeDBContext(DbContextOptions<HealthLifeDBContext> dbContextOptions) : base(dbContextOptions)
         {
@@ -882,6 +883,50 @@ namespace HealthLifeProject.Commons
                       RoleID=3 }
             };
             modelBuilder.Entity<PartnersRepresentatives>().HasData(partnersRepresentative);
+
+            Events[] events = new Events[]
+            {
+                  new Events(){Id = 1,
+                      NameEvent="Благодійний марафон",
+                      EventDate = new DateTime(2024,06,06),
+                      Desc="Благодійний марафон на підтримку дітей з хронічними захворюваннями" },
+                  new Events(){Id = 2,
+                      NameEvent="Благодійна ярмарка",
+                      EventDate = new DateTime(2024,04,09),
+                      Desc="Благодійна ярмарка на підтримку ветеранів" },
+                  new Events(){Id = 3,
+                      NameEvent="Благодійна виавка",
+                      EventDate = new DateTime(2024,05,03),
+                      Desc="Благодійна витавка україньких хзудожникв на підтримку онкохворих діток" },
+                  new Events(){Id = 4,
+                      NameEvent="Благодійна ярмарка",
+                      EventDate = new DateTime(2024,07,09),
+                      Desc="Благодійна ярмарка на підтримку військових, що потребують протезування" },
+                  new Events(){Id = 5,
+                      NameEvent="Благдійний марафон",
+                      EventDate = new DateTime(2024,08,11),
+                      Desc="Благдійний марафон на підтримку жінок, що боряться з ракомгрудей" },
+            };
+            modelBuilder.Entity<Events>().HasData(events);
+            News[] news = new News[]
+            {
+                  new News(){Id = 1,
+                      NameNewі="Благодійний ярмарок на підтримку дітей-сиріт",
+                      Desc="Запрошуємо  всіх на благодійний ярмарок, який відбудеться 15 листопада на головній площ міста. " +
+                      "На виставці будуть предтавлені різноманітні товари ручної роботи, маколики та інші цікаві речі. Всі зібрані кошти будуть спрямовані на підтримку дітей-сиріт." },
+                  new News(){Id = 2,
+                      NameNewі="Нове відділення для реабілітації",
+                      Desc="З гордітю повідомляємо про відкиття нового ідділення для реабілітації дітей у нашій партнерькій лікарні. " +
+                      "Завдяки вашій підтримці та зібраним коштам, відділення обладнано найучанішою технікою та готое приймаи маленьких пацієнтів. Ми вдячні всім." },
+                  new News(){Id = 3,
+                      NameNewі="Блгодійний марафон на підтримку хворих дітей",
+                      Desc="Запрошуємо Вас взяти участь в нашому благодійному марафоні, присвяченому збору коштів на лікування хворих дітей. Подія відбудетья у центральному парку міта 25 липня. На Вас чекають цікаві конкурси, концерти та можливість особисо поспілкуватись з рідними діток." },
+                  new News(){Id = 4,
+                      NameNewі="Новий додаток для допомоги хворим",
+                      Desc="З радітю повідомляємо про запуск нашого інноваційногододатку, призначеного для збору коштів на лікування, реабілітацію, проттезування та підтримку життедіяльноті хорих." +
+                      "Цей додаок дозволяє легко та безпечно робити донати, відслідковувати хід зборів." },
+            };
+            modelBuilder.Entity<News>().HasData(news);
         }
     }
 }
