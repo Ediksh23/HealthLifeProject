@@ -520,9 +520,9 @@ namespace HealthLifeProject.Commons
                       CategoryID=1, TreatmentCategoryID=1,  DiagnosisID=8,
                       CityID=2, HospitalID=5, WardID=2,
                       FeeAmount=230000,
-                      Bank_card_number="1246796423589124", Bank_account="UA010000001246796423589124", Inn="1246796423", FundraisingStatusID=1,
+                      Bank_card_number="1246796423589124", Bank_account="UA010000001246796423589124", Inn="1246796423", FundraisingStatusID=2,
                       BirthDate = new DateTime(1982,02,07),
-                      Descript_patient_and_disease="Лікування сердцевої недотатності длґ Каті",
+                      Descript_patient_and_disease="Лікування сердцевої недотатності для Каті",
                       Notate="Катерині був поставлений діагноз Хронічна серцева недостатность. " +
                       "Лікування відбувається в Відділенні хірургічного лікування патології міокарда, трансплантації та механічної підтримки серця і легень Інституту серцево-судинної хірургії (ІССХ) АМН України"},
                   new Patients(){Id = 3,
@@ -546,7 +546,7 @@ namespace HealthLifeProject.Commons
                       CategoryID=2, TreatmentCategoryID=2,  DiagnosisID=5,
                       CityID=3, HospitalID=5, WardID=3,
                       FeeAmount=250000,
-                      Bank_card_number="2596345678412578", Bank_account="UA010000002596345678412578", Inn="2596345678", FundraisingStatusID=1,
+                      Bank_card_number="2596345678412578", Bank_account="UA010000002596345678412578", Inn="2596345678", FundraisingStatusID=4,
                       BirthDate = new DateTime(2023,06,08),
                       Descript_patient_and_disease="Реабілітація для маленької Ані",
                       Notate="Анні поставили важкий діагноз Тетрада Фалло. Наразі дитина потребує довготривалої та дуже коштовної реабілітації. " +
@@ -572,7 +572,7 @@ namespace HealthLifeProject.Commons
                       CategoryID=2, TreatmentCategoryID=1,  DiagnosisID=12,
                       CityID=4, HospitalID=1, WardID=4,
                       FeeAmount=360000,
-                      Bank_card_number="2587963245617896", Bank_account="UA010000002587963245617896", Inn="2587963245", FundraisingStatusID=1,
+                      Bank_card_number="2587963245617896", Bank_account="UA010000002587963245617896", Inn="2587963245", FundraisingStatusID=3,
                       BirthDate = new DateTime(2018,05,09),
                       Descript_patient_and_disease="Операція з видалення пухлини головного мозку для Злаочки",
                       Notate="У Злати виявили Пухлину головного мозку. Дитина поребує перації та довготривалого та дуже дорогого лікування. \" +\r\n                      \"Операція буде проведена в Відділені дитячої нейрохірургії НДСЛ «Охматдит»"},
@@ -611,7 +611,7 @@ namespace HealthLifeProject.Commons
                       CategoryID=2, TreatmentCategoryID=1,  DiagnosisID=11,
                       CityID=1, HospitalID=1, WardID=5,
                       FeeAmount=350000,
-                      Bank_card_number="7595426215354868", Bank_account="UA010000007595426215354868", Inn="7595426215", FundraisingStatusID=1,
+                      Bank_card_number="7595426215354868", Bank_account="UA010000007595426215354868", Inn="7595426215", FundraisingStatusID=4,
                       BirthDate = new DateTime(2021,06,07),
                       Descript_patient_and_disease="Ліування Хронічної ниркової недостатності (ХНН V) для Данилка",
                       Notate="У Данила виявили Хронічну ниркова  недостатність (ХНН V). Лікування дитини довготривале та дуже дороге." +
@@ -637,7 +637,7 @@ namespace HealthLifeProject.Commons
                       CategoryID=3, TreatmentCategoryID=1,  DiagnosisID=7,
                       CityID=5, HospitalID=5, WardID=1,
                       FeeAmount=420000,
-                      Bank_card_number="2596368514857452", Bank_account="UA010000002596368514857452", Inn="2596368514", FundraisingStatusID=1,
+                      Bank_card_number="2596368514857452", Bank_account="UA010000002596368514857452", Inn="2596368514", FundraisingStatusID=3,
                       BirthDate = new DateTime(1990,06,07),
                       Descript_patient_and_disease="Операція на сердці для захиника Дмитра",
                       Notate="Перебуваючи на позиції, Дмитро отримав Проникаюче поранення грудної порожнини. " +
@@ -731,9 +731,9 @@ namespace HealthLifeProject.Commons
                       CategoryID=3, TreatmentCategoryID=2,  DiagnosisID=3,
                       CityID=2, HospitalID=3, WardID=null,
                       FeeAmount=150000,
-                      Bank_card_number="7645289634567812", Bank_account="UA010000007645289634567812", Inn="7645289634", FundraisingStatusID=1,
+                      Bank_card_number="7645289634567812", Bank_account="UA010000007645289634567812", Inn="7645289634", FundraisingStatusID=2,
                       BirthDate = new DateTime(1988,08,07),
-                      Descript_patient_and_disease="Реабілітація після тяжкої оерації для захиника Матвія",
+                      Descript_patient_and_disease="Реабілітація після тяжкої операції для захиника Матвія",
                       Notate="Виконуючи бойове завдання, Матвій отримав тяжке Проникаюче поранення живота. " +
                       "Він потрибує проведення реабілітації після важкої та коштовної операції. Реабілітація буде в БО ДОБФ «Лікарня ім. І.І. МЕЧНИКОВА»"},
                   new Patients(){Id = 19,
@@ -926,6 +926,70 @@ namespace HealthLifeProject.Commons
                       "Цей додаок дозволяє легко та безпечно робити донати, відслідковувати хід зборів." },
             };
             modelBuilder.Entity<News>().HasData(news);
+            PatientsCharitableContributions[] patientsCharitableContributions = new PatientsCharitableContributions[]
+             {
+                  new PatientsCharitableContributions(){Id = 1, 
+                      BenefactorID=1,
+                      PatientID = 9,
+                      Amount=75000
+                      },
+                  new PatientsCharitableContributions(){Id = 2,
+                      BenefactorID=2,
+                      PatientID = 9,
+                      Amount=125000
+                      },
+                  new PatientsCharitableContributions(){Id = 3,
+                      BenefactorID=3,
+                      PatientID = 9,
+                      Amount=100000
+                      },
+                  new PatientsCharitableContributions(){Id = 4,
+                      BenefactorID=4,
+                      PatientID = 9,
+                      Amount=20000
+                      },
+                  new PatientsCharitableContributions(){Id = 5,
+                      BenefactorID=2,
+                      PatientID = 9,
+                      Amount=30000
+                      },
+                  new PatientsCharitableContributions(){Id = 6,
+                      BenefactorID=3,
+                      PatientID = 11,
+                      Amount=50000
+                      },
+                  new PatientsCharitableContributions(){Id = 7,
+                      BenefactorID=1,
+                      PatientID = 2,
+                      Amount=20000
+                      },
+                  new PatientsCharitableContributions(){Id = 8,
+                      BenefactorID=4,
+                      PatientID = 4,
+                      Amount=120000
+                      },
+                   new PatientsCharitableContributions(){Id = 9,
+                      BenefactorID=3,
+                      PatientID = 4,
+                      Amount=80000
+                      },
+                    new PatientsCharitableContributions(){Id = 10,
+                      BenefactorID=1,
+                      PatientID = 4,
+                      Amount=50000
+                      },
+                     new PatientsCharitableContributions(){Id = 11,
+                      BenefactorID=2,
+                      PatientID = 6,
+                      Amount=10000
+                      },
+                      new PatientsCharitableContributions(){Id = 12,
+                      BenefactorID=4,
+                      PatientID = 6,
+                      Amount=70000
+                      },
+             };
+            modelBuilder.Entity<Category>().HasData(categorys);
 
         }
     }
