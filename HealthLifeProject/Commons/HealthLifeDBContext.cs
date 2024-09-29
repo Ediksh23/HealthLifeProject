@@ -21,12 +21,10 @@ namespace HealthLifeProject.Commons
         public Microsoft.EntityFrameworkCore.DbSet<Entrances> Entrances { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<FundraisingStatuses> FundraisingStatuses { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Hospitals> Hospitals { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<HospitalsPhotos> HospitalsPhotos { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<HospitalsRepresentatives> HospitalsRepresentatives { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<HospitalsCharitableContributions> HospitalsCharitableContributions { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Houses> Houses { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Names> Names { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<PatientPhotos> PatientPhotos { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Patients> Patients { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<PatientsCharitableContributions> PatientsCharitableContributions { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<PartnersRepresentatives> PartnersRepresentatives { get; set; }
@@ -39,10 +37,10 @@ namespace HealthLifeProject.Commons
         public Microsoft.EntityFrameworkCore.DbSet<StreetTypes> StreetTypes { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Surnames> Surnames { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Wards> Wards { get; set; }
-        public Microsoft.EntityFrameworkCore.DbSet<WardsPhotos> WardsPhotos { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<NavagateLink> NavagateLink { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Option> Option { get; set; }
         public Microsoft.EntityFrameworkCore.DbSet<Events> Event { get; set; }
+        public Microsoft.EntityFrameworkCore.DbSet<News> News { get; set; }
 
         public HealthLifeDBContext(DbContextOptions<HealthLifeDBContext> dbContextOptions) : base(dbContextOptions)
         {
@@ -908,6 +906,7 @@ namespace HealthLifeProject.Commons
                       Desc="Благдійний марафон на підтримку жінок, що боряться з ракомгрудей" },
             };
             modelBuilder.Entity<Events>().HasData(events);
+
             News[] news = new News[]
             {
                   new News(){Id = 1,
@@ -927,6 +926,7 @@ namespace HealthLifeProject.Commons
                       "Цей додаок дозволяє легко та безпечно робити донати, відслідковувати хід зборів." },
             };
             modelBuilder.Entity<News>().HasData(news);
+
         }
     }
 }

@@ -23,6 +23,11 @@ namespace HealthLifeProject.Entities {
         public int DonationAmount { set; get; }
         public string Desc { set; get; }
 
+        /*[Column("Image")]
+        public Guid? ImageGuid { get; set; }
+
+        public string ImageSrc => ImageGuid == null ? "~/images/default.jpg" : $"~../images/Hospitals/{ImageGuid}.jpg";*/
+
         public List<Wards> Wards { set; get; }
         public List<Patients> Patients { set; get; }
         public List<HospitalsRepresentatives> HospitalsRepresentatives { set; get; }

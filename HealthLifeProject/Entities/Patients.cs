@@ -15,7 +15,7 @@ namespace HealthLifeProject.Entities {
         public int NameID { set; get; }//
         [ForeignKey("Patronymics")]
         public int PatronymicID { set; get; }   //
-        public List<PatientPhotos> PatientPhotos { set; get; }
+//        public List<PatientPhotos> PatientPhotos { set; get; }
         public DateTime BirthDate { set; get; }
         [ForeignKey("Gender")]
         public int GenderID { set; get; }

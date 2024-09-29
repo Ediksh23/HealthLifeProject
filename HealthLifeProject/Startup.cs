@@ -48,12 +48,10 @@ namespace HealthLifeProject
             services.AddTransient<EntrancesRepository>();
             services.AddTransient<FundraisingStatusesRepository>();
             services.AddTransient<HospitalsRepository>();
-            services.AddTransient<HospitalsPhotosRepository>();
             services.AddTransient<HospitalsRepresentativesRepository>();
             services.AddTransient<HospitalsCharitableContributionsRepository>();
             services.AddTransient<HousesRepository>();
             services.AddTransient<NamesRepository>();
-            services.AddTransient<PatientPhotosRepository>();
             services.AddTransient<PatientsRepository>();
             services.AddTransient<PatientsCharitableContributionsRepository>();
             services.AddTransient<PartnersRepresentativesRepository>();
@@ -66,7 +64,6 @@ namespace HealthLifeProject
             services.AddTransient<StreetTypesRepository>();
             services.AddTransient<SurnamesRepository>();
             services.AddTransient<WardsRepository>();
-            services.AddTransient<WardsPhotosRepository>();
 
 
 

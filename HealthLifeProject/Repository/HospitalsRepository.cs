@@ -42,5 +42,10 @@ namespace HealthLifeProject.Repository
             return _healthLifeDBContext.Hospitals.Where(o => o.CityID == CityID).ToList();
         }
 
+        public IEnumerable<Hospitals> GetHospitalsByID(int ID)
+        {
+            return _healthLifeDBContext.Hospitals.Where(o => o.Id == ID).ToList();
+        }
+
     }
 }
