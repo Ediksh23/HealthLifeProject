@@ -306,7 +306,11 @@ namespace HealthLifeProject.Commons
                   new Names(){Id = 23, Name="Відар", Desc=""},
                   new Names(){Id = 24, Name="Юстінія", Desc=""},
                   new Names(){Id = 25, Name="Ілай", Desc=""},
-                  new Names(){Id = 26, Name="Жива", Desc=""}
+                  new Names(){Id = 26, Name="Марина", Desc=""},
+                  new Names(){Id = 27, Name="Іван", Desc=""},
+                  new Names(){Id = 28, Name="Жива", Desc=""},
+                  new Names(){Id = 29, Name="Василь", Desc=""},
+                  new Names(){Id = 30, Name="Ольга", Desc=""}
 
             };
             modelBuilder.Entity<Names>().HasData(names);
@@ -475,7 +479,15 @@ namespace HealthLifeProject.Commons
                   new Diagnoses(){Id = 11, NameDiagnosis="Хронічна ниркова  недостатність (ХНН V)", Desc=""},
                   new Diagnoses(){Id = 12, NameDiagnosis="Пухлина головного мозку", Desc=""},
                   new Diagnoses(){Id = 13, NameDiagnosis="Пухлина головного мозку", Desc=""},
-                  new Diagnoses(){Id = 14, NameDiagnosis="Гідроцефалія набута", Desc=""}
+                  new Diagnoses(){Id = 14, NameDiagnosis="Гідроцефалія набута", Desc=""},
+                  new Diagnoses(){Id = 15, NameDiagnosis="Вроджена дисплазія тазостегнових суглобів", Desc=""},
+                  new Diagnoses(){Id = 16, NameDiagnosis="Травма спинного мозку і хребта", Desc=""},
+                  new Diagnoses(){Id = 17, NameDiagnosis="Хронічний гепатит С", Desc=""},
+                  new Diagnoses(){Id = 18, NameDiagnosis="Лейкемія", Desc=""},
+                  new Diagnoses(){Id = 19, NameDiagnosis="Гостаю лімфобластна лейкемія", Desc=""},
+                  new Diagnoses(){Id = 20, NameDiagnosis="Обширні опіки", Desc=""},
+                  new Diagnoses(){Id = 21, NameDiagnosis="Інсульт", Desc=""}
+
            };
             modelBuilder.Entity<Diagnoses>().HasData(diagnose);
 
@@ -498,6 +510,7 @@ namespace HealthLifeProject.Commons
 
             Patients[] patient = new Patients[]
             {
+                
                   new Patients(){Id = 1,
                       SurnameID=1,
                       NameID=7,
@@ -764,6 +777,113 @@ namespace HealthLifeProject.Commons
                       Notate="Перебуваючи на позиції, Ілай отримав Проникаюче поранення грудної порожнини. " +
                       "Захиснику необхідне двготривале та коштовне лікування та відновлення. Реабілітація відбувається в КНП Харківської обласної ради " +
                       "«Обласна клінічна травматологічна лікарня»"},
+                  new Patients(){Id = 21,
+                      SurnameID=6,
+                      NameID=26,
+                      PatronymicID=14,
+                      GenderID=2,
+                      CategoryID=2, TreatmentCategoryID=1,  DiagnosisID=15,
+                      CityID=2, HospitalID=4, WardID=null,
+                      FeeAmount=1200000,
+                      Bank_card_number="45698523412694527", Bank_account="UA0100000045698523412694527", Inn="45698523412", FundraisingStatusID=4,
+                      BirthDate = new DateTime(2018,05,10),
+                      Descript_patient_and_disease="Операція і терапія для Марини",
+                      Notate="Мета: Підтримати 5-річну Марину, яка страждає на вроджену дисплазію тазостегнових суглобів. " +
+                      "Для проведення операції та спеціалізованої терапії необхідно зібрати 1,200,000 грн. " +
+                      "Лікування буде проходити в Чернігівській дитячій лікарні."},
+                   new Patients(){Id = 22,
+                      SurnameID=17,
+                      NameID=11,
+                      PatronymicID=11,
+                      GenderID=1,
+                      CategoryID=3, TreatmentCategoryID=3,  DiagnosisID=2,
+                      CityID=1, HospitalID=6, WardID=null,
+                      FeeAmount=100000,
+                      Bank_card_number="3694562153486297", Bank_account="UA010000003694562153486297", Inn="3694562153", FundraisingStatusID=4,
+                      BirthDate = new DateTime(2060,08,11),
+                      Descript_patient_and_disease="Протезування для ветерана АТО Дмитра",
+                      Notate="Мета: Допомогти 64-річному ветерану АТО Дмитру, який втратив ногу внаслідок бойових дій, отримати сучасний протез. " +
+                      "Для цього необхідно зібрати 100,000 грн. Протезування буде проводитися в спеціалізованому центрі Центра трансплантології Першого медоб'єднання Львова"},
+                   new Patients(){Id = 23,
+                      SurnameID=12,
+                      NameID=12,
+                      PatronymicID=16,
+                      GenderID=2,
+                      CategoryID=3, TreatmentCategoryID=2,  DiagnosisID=16,
+                      CityID=4, HospitalID=2, WardID=null,
+                      FeeAmount=800000,
+                      Bank_card_number="3694562153486297", Bank_account="UA010000003694562153486297", Inn="3694562153", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2094,06,02),
+                      Descript_patient_and_disease="Реабілітація поранення для Мирослави",
+                      Notate="Мета: Допомогти 30-річній Мирославі, військовій, яка отримала важке поранення спини з пошкодженням хребта внаслідок бойових дій, " +
+                      "пройти повноцінну реабілітацію. " +
+                      "Для цього необхідно зібрати 800,000 грн. Лікування та реабілітація проводитимуться в КНП Харківської обласної ради «Обласна клінічна травматологічна лікарня»."},
+                    new Patients(){Id = 24,
+                      SurnameID=9,
+                      NameID=27,
+                      PatronymicID=9,
+                      GenderID=1,
+                      CategoryID=1, TreatmentCategoryID=1,  DiagnosisID=17,
+                      CityID=5, HospitalID=3, WardID=null,
+                      FeeAmount=720000,
+                      Bank_card_number="56982149563275483", Bank_account="UA0100000056982149563275483", Inn="56982149563", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2096,04,08),
+                      Descript_patient_and_disease="Курс лікування для Івана",
+                      Notate="Мета: Допомогти 28-річному Івану пройти курс лікування противірусними препаратами для боротьби з хронічним гепатитом С. " +
+                      "Потрібно зібрати 720,000 грн. Лікування буде проводитися у БО ДОБФ «Лікарня ім. І.І. МЕЧНИКОВА»"},
+                     new Patients(){Id = 25,
+                      SurnameID=3,
+                      NameID=21,
+                      PatronymicID=3,
+                      GenderID=1,
+                      CategoryID=1, TreatmentCategoryID=1,  DiagnosisID=18,
+                      CityID=1, HospitalID=1, WardID=7,
+                      FeeAmount=200000,
+                      Bank_card_number="4619534875124673", Bank_account="UA010000004619534875124673", Inn="4619534875", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2018,06,07),
+                      Descript_patient_and_disease="Лікування онкології для Олександра",
+                      Notate="Мета: Зібрати кошти на лікування 6-річного Олександра, який бореться з лейкемією. " +
+                      "Необхідно зібрати 200,000 грн на проведення хіміотерапії та подальшу реабілітацію. " +
+                      "Лікування проводиться в Відділенні інтенсивної хіміотерапії НДСЛ «Охматдит»"},
+                     new Patients(){Id = 26,
+                      SurnameID=6,
+                      NameID=14,
+                      PatronymicID=4,
+                      GenderID=2,
+                      CategoryID=1, TreatmentCategoryID=1,  DiagnosisID=19,
+                      CityID=4, HospitalID=3, WardID=null,
+                      FeeAmount=100000,
+                      Bank_card_number="2369751243957854", Bank_account="UA010000002369751243957854", Inn="2369751243", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2087,03,01),
+                      Descript_patient_and_disease="Реабілітація для Марії",
+                      Notate="Мета: Підтримати 37-річну Марію, яка бореться з гострою лімфобластною лейкемією. " +
+                      "Для проходження хіміотерапії та підтримуючої терапії необхідно зібрати 100000. Лікування буде проводитися у БО ДОБФ «Лікарня ім. І.І. МЕЧНИКОВА»"},
+                     new Patients(){Id = 27,
+                      SurnameID=6,
+                      NameID=29,
+                      PatronymicID=1,
+                      GenderID=1,
+                      CategoryID=1, TreatmentCategoryID=1,  DiagnosisID=20,
+                      CityID=1, HospitalID=6, WardID=null,
+                      FeeAmount=250000,
+                      Bank_card_number="2698756412357698", Bank_account="UA010000002698756412357698", Inn="2698756412", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2020,04,09),
+                      Descript_patient_and_disease="Лікування важких опіків для Василя",
+                      Notate="Мета: Зібрати 250,000 грн для 4-річного Василя, який постраждав від пожежі. Кошти необхідні для проведення кількох етапів пластичних операцій та тривалої реабілітації. " +
+                      "Лікування буде проводитися у Центр трансплантології Першого медоб'єднання Львова"},
+                     new Patients(){Id = 28,
+                      SurnameID=10,
+                      NameID=30,
+                      PatronymicID=12,
+                      GenderID=2,
+                      CategoryID=1, TreatmentCategoryID=2,  DiagnosisID=21,
+                      CityID=7, HospitalID=4, WardID=null,
+                      FeeAmount=100000,
+                      Bank_card_number="5674215963548246", Bank_account="UA010000005674215963548246", Inn="5674215963", FundraisingStatusID=1,
+                      BirthDate = new DateTime(2066,04,08),
+                      Descript_patient_and_disease="Реабілітація після інсульту для Ольги",
+                      Notate="Мета: Зібрати 100,000 грн для реабілітації 58-річної Ольги, яка перенесла важкий інсульт. Кошти підуть на курс відновлювальної терапії та спеціальні тренажери. " +
+                      "Реабілітація проходитиме в Обласній клінічній лікарні відновного лікування та діагностики"}
             };
             modelBuilder.Entity<Patients>().HasData(patient);
 
@@ -1036,6 +1156,56 @@ namespace HealthLifeProject.Commons
                       BenefactorID=4,
                       PatientID = 6,
                       Amount=70000
+                      },
+                      new PatientsCharitableContributions(){Id = 13,
+                      BenefactorID=4,
+                      PatientID = 21,
+                      Amount=200000
+                      },
+                      new PatientsCharitableContributions(){Id = 14,
+                      BenefactorID=2,
+                      PatientID = 21,
+                      Amount=300000
+                      },
+                      new PatientsCharitableContributions(){Id = 15,
+                      BenefactorID=1,
+                      PatientID = 21,
+                      Amount=400000
+                      },
+                      new PatientsCharitableContributions(){Id = 16,
+                      BenefactorID=3,
+                      PatientID = 21,
+                      Amount=150000
+                      },
+                      new PatientsCharitableContributions(){Id = 17,
+                      BenefactorID=2,
+                      PatientID = 21,
+                      Amount=150000
+                      },
+                      new PatientsCharitableContributions(){Id = 18,
+                      BenefactorID=3,
+                      PatientID = 22,
+                      Amount=60000
+                      },
+                      new PatientsCharitableContributions(){Id = 19,
+                      BenefactorID=2,
+                      PatientID = 22,
+                      Amount=15000
+                      },
+                      new PatientsCharitableContributions(){Id = 20,
+                      BenefactorID=1,
+                      PatientID = 22,
+                      Amount=5000
+                      },
+                      new PatientsCharitableContributions(){Id = 21,
+                      BenefactorID=4,
+                      PatientID = 22,
+                      Amount=15000
+                      },
+                      new PatientsCharitableContributions(){Id = 22,
+                      BenefactorID=1,
+                      PatientID = 22,
+                      Amount=5000
                       },
              };
             modelBuilder.Entity<Category>().HasData(categorys);
