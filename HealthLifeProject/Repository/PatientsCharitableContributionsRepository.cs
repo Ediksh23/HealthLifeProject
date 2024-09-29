@@ -20,15 +20,14 @@ namespace HealthLifeProject.Repository
 
         public bool AddPatientsCharitableContribution(PatientsCharitableContributions contribution)
         {
-            var PatientContribution = _healthLifeDBContext.Patients.SingleOrDefault(o => o.Id == contribution.PatientID);
-            //if(PatientContribution.
-            //
-            //== 1)
-           // {
+            var patientID = _healthLifeDBContext.Patients.SingleOrDefault(o => o.Id == contribution.PatientID);
+            if(patientID.FundraisingStatusID == 1){
                 _healthLifeDBContext.Add(contribution);
-                PatientContribution.DonationAmount += contribution.Amount; ///???
-                return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
-            //}
+                patientID.DonationAmount += contribution.Amount;
+                if (patientID.DonationAmount > patientID.FeeAmount)
+                    patientID.FundraisingStatusID = 4;
+            }
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;
         }
 
         public bool DeletePatientsCharitableContributionByID(int contributionID)

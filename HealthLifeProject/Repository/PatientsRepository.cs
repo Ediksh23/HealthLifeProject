@@ -67,10 +67,16 @@ namespace HealthLifeProject.Repository
         {
             return _healthLifeDBContext.Patients.Where(o => o.CityID == cityID).ToList();
         }
-       // public IEnumerable<Patients> GetPatientsByAge(int Age)
-      //  {
+        public bool AddDonationAmountByID(int patientID, int donationAmount)
+        {
+            Patients patient = _healthLifeDBContext.Patients.Find(patientID);
+            patient.DonationAmount += donationAmount;
+            return _healthLifeDBContext.SaveChanges() == 1 ? true : false;   
+        }
+        // public IEnumerable<Patients> GetPatientsByAge(int Age)
+        //  {
 
-            //return _healthLifeDBContext.Patients.Where( == Age).ToList();
-      //  }
+        //return _healthLifeDBContext.Patients.Where( == Age).ToList();
+        //  }
     }
 }
