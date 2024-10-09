@@ -45,7 +45,7 @@ namespace HealthLifeProject.Commons
         public HealthLifeDBContext(DbContextOptions<HealthLifeDBContext> dbContextOptions) : base(dbContextOptions)
         {
             //Database.EnsureDeleted();
-            //Database.EnsureCreated(); // Створюємо базу даних при першому зверненні   Команда: EntityFrameworkCore\Add-migration  Initial
+           .//Database.EnsureCreated(); // Створюємо базу даних при першому зверненні   Команда: EntityFrameworkCore\Add-migration  Initial
 
         }
 
@@ -1115,7 +1115,7 @@ namespace HealthLifeProject.Commons
                   new PatientsCharitableContributions(){Id = 4,
                       BenefactorID=4,
                       PatientID = 9,
-                      Amount=20000
+                      Amount=20000 
                       },
                   new PatientsCharitableContributions(){Id = 5,
                       BenefactorID=2,
